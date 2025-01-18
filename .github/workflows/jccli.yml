@@ -1,0 +1,29 @@
+name: CLI-build
+
+on: [push]
+
+jobs:
+  CLI-build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.7"
+      
+      - name: Setup Env
+        run: |
+          python -m pip install pip setuptools --upgrade
+          python -m pip install -r requirements.txt
+          python -m pip install pyinstaller
+        
+      - name: Build
+        run: |
+          pyinstaller -F jccli.py --clean
+      
+      - name: Upload distributions
+        uses: actions/upload-artifact@v4
+        with:
+          name: jccli
+          path: dist/jccli.exe
