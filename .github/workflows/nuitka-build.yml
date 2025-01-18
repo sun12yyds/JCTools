@@ -1,3 +1,7 @@
+name: Build JCcli using Nuitka
+
+on: [push]
+
 jobs:
 
   build:
