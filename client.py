@@ -7,7 +7,7 @@ sock.setsockopt(socket.SOL_SOCKET,socket.SO_BROADCAST,1)
 
 print("run")
 
-broadcast_ip="2a"
+broadcast_ip="255.255.255.255"
 broadcast_port=5060
 
 def client(event):
