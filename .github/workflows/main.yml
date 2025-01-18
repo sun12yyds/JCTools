@@ -1,3 +1,7 @@
+name: CLI-build
+
+on: [push]
+
 jobs:
   CLI-build:
     runs-on: windows-latest
