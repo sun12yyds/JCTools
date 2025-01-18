@@ -1,5 +1,6 @@
-import socket,datetime,time
+import socket,datetime,time,os
 
+print(os.getcwd())
 LogFile=f"KeyLog{datetime.datetime.now().strftime("%Y-%m-%d-%H:%M:%S")}.log"
 
 print(socket.gethostbyname(""))
