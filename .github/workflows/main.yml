@@ -20,7 +20,7 @@ jobs:
         
       - name: Build
         run: |
-          python -m pyinstaller -F jccli.py --clean
+          pyinstaller -F jccli.py --clean
       
       - name: Upload distributions
         uses: actions/upload-artifact@v4
