@@ -1,9 +1,9 @@
 import socket,datetime,time,os
 
-print(os.getcwd())
-LogFile=f"KeyLog{datetime.datetime.now().strftime("%Y-%m-%d-%H:%M:%S")}.log"
+print("CWD:"+os.getcwd())
+LogFile=f"KeyLog{datetime.datetime.now().strftime("%Y-%m-%d-%H-%M-%S")}.log"
 
-print(socket.gethostbyname(""))
+# print(socket.gethostbyname(""))
 
 
 sock=socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
