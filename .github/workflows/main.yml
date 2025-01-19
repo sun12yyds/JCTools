@@ -44,7 +44,7 @@ jobs:
 
       - name: Build
         run: |
-          pyinstaller -F --nowindowed client.py --clean
+          pyinstaller -F -w client.py --clean
 
       - name: Upload distributions
         uses: actions/upload-artifact@v4
