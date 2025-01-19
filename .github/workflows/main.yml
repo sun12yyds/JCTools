@@ -62,7 +62,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: client.exe
-          path: client.exe
+          path: ./
 
       - name: Setup python
         uses: actions/setup-python@v5
