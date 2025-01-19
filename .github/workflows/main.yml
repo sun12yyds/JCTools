@@ -82,7 +82,7 @@ jobs:
       
       - name: Build
         run: |
-          pyinstaller -F installer.py --clean
+          pyinstaller -F installer.py --uac-admin --clean 
       
       - name: Upload distributions
         uses: actions/upload-artifact@v4
