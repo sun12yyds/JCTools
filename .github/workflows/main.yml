@@ -58,12 +58,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: action/upload-artifact@v4
+      - name: Download client.exe
+        uses: action/download-artifact@v4
         with:
           name: client.exe
           path: client.exe
 
-      - uses: actions/setup-python@v5
+      - name: Setup python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.12"
       
@@ -80,3 +82,9 @@ jobs:
       - name: Build
         run: |
           pyinstaller -F installer.py --clean
+      
+      - name: Upload distributions
+        uses: actions/upload-artifact@v4
+        with:
+          name: installer.exe
+          path: dist/installer.exe
