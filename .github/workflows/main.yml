@@ -78,7 +78,6 @@ jobs:
       - name: Make installer.py
         run: |
           python -u installerMaker.py
-        permissions: [read-all,write-all]
       
       - name: Build
         run: |
