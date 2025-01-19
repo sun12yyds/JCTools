@@ -1,4 +1,4 @@
-name: CLI-build
+name: Build
 
 on: [push]
 
@@ -25,7 +25,7 @@ jobs:
       - name: Upload distributions
         uses: actions/upload-artifact@v4
         with:
-          name: jccli
+          name: jccli.exe
           path: dist/jccli.exe
   Client-build:
     runs-on: windows-latest
@@ -49,5 +49,34 @@ jobs:
       - name: Upload distributions
         uses: actions/upload-artifact@v4
         with:
-          name: client
+          name: client.exe
           path: dist/client.exe
+  
+  Build-client-installer:
+    needs: Client-build
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: action/upload-artifact@v4
+        with:
+          name: client.exe
+          path: client.exe
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      
+      - name: Setup Env
+        run: |
+          python -m pip install pip setuptools --upgrade
+          python -m pip install -r requirements.txt
+          python -m pip install pyinstaller
+
+      - name: Make installer.py
+        run: |
+          python -u installerMaker.py
+      
+      - name: Build
+        run: |
+          pyinstaller -F installer.py --clean
